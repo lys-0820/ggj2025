@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class BoilTea : MonoBehaviour
+public class BoilTeaController : MonoBehaviour
 {
-    public static BoilTea Instance { get; private set; }
+    public static BoilTeaController Instance { get; private set; }
 
     [SerializeField] private SpriteRenderer teaImage; // 茶汤的图片组件
     [SerializeField] private Sprite emptySprite; // 空杯子的图片

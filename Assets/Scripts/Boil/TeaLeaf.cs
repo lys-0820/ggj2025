@@ -6,7 +6,6 @@ public class TeaLeaf : MonoBehaviour
 {
     [SerializeField] private GameObject teaLeaf;
     [SerializeField] private GameObject teaPot;
-    [SerializeField] private Sprite boiledTeaPotSprite;
     
     private bool isMoving = false;
     private float moveSpeed = 2f;
@@ -27,7 +26,7 @@ public class TeaLeaf : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject == teaLeaf)
             {
                 StartTeaLeafMovement();
-                BoilTea.Instance.AddTeaLeaf();
+                BoilTeaController.Instance.AddTeaLeaf();
             }
         }
 

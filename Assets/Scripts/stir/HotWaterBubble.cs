@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-public class HotWater : MonoBehaviour
+public class HotWaterBubble : MonoBehaviour
 {
     [SerializeField] private GameObject tap;
     [SerializeField] private GameObject water;
@@ -29,7 +29,7 @@ public class HotWater : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject == tap)
             {
                 StartWaterFlow();
-                BoilTea.Instance.AddHotWater();
+                stirController.Instance.AddHotWater();
             }
 
         }
