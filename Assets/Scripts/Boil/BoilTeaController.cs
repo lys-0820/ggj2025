@@ -17,6 +17,8 @@ public class BoilTeaController : MonoBehaviour
     [SerializeField] private Sprite blackTeaLeafSprite; // 只有茶叶的图片
     [SerializeField] private Sprite greenTeaLeafSprite; // 只有茶叶的图片
     [SerializeField] private Sprite hotWaterSprite; // 只有热水的图片
+    [SerializeField] private Sprite blackWaterSprite; // 茶叶+水的图片
+    [SerializeField] private Sprite greenWaterSprite; // 茶叶+水的图片
     [SerializeField] private Sprite finalBlackTeaSprite; // 完成的茶的图片
     [SerializeField] private Sprite finalGreenTeaSprite; // 完成的茶的图片
 
@@ -111,22 +113,37 @@ public class BoilTeaController : MonoBehaviour
         }
         else if (hasTeaLeaf && hasHotWater)
         {
-            if (type == teaType.black)
-            {
-                teaImage.sprite = finalBlackTeaSprite;
-                blackTeaPot.sprite = filledBlackPot;
-            }
-            else
-            {
-                teaImage.sprite = finalGreenTeaSprite;
-                greenTeaPot.sprite = filledGreenPot;
-            }
-            
-            Reset();
+
+            StartCoroutine(startBoiling(type));
         }
     }
 
     // 获取当前状态的方法
     public bool HasTeaLeaf() => hasTeaLeaf;
     public bool HasHotWater() => hasHotWater;
+
+    private IEnumerator startBoiling(teaType type)
+    {
+        if (type == teaType.black)
+        {
+            teaImage.sprite = blackWaterSprite;
+        }
+        else
+        {
+            teaImage.sprite = greenWaterSprite;
+        }
+        yield return new WaitForSeconds(8f);
+        if (type == teaType.black)
+        {
+            teaImage.sprite = finalBlackTeaSprite;
+            blackTeaPot.sprite = filledBlackPot;
+        }
+        else
+        {
+            teaImage.sprite = finalGreenTeaSprite;
+            greenTeaPot.sprite = filledGreenPot;
+        }
+        yield return new WaitForSeconds(2f);
+        Reset();
+    }
 }

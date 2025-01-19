@@ -111,4 +111,12 @@ public class ServingController : MonoBehaviour
         // 30秒后调用另外的方法
         changeMakingStatus(true);
     }
+
+    public void checkIngredientCorrect()
+    {
+        foreach(var ingredient in currentIngredients)
+        {
+            Debug.Log(ingredient);
+        }
+    }
 }
