@@ -7,6 +7,7 @@ public class PreparationController : MonoBehaviour
 
     private PreparationStep currentStep;
     private bool isPreparationInProgress = false;
+    public bool hasHotWater = false;
 
     // Awake 方法，确保单例实例
     private void Awake()
@@ -57,6 +58,15 @@ public class PreparationController : MonoBehaviour
         currentStep.StartPreparation();
         isPreparationInProgress = true;
     }
+    public void CompleteTeaPreparation()
+    {
+
+        currentStep.CompletePreparation();
+
+        UpdateStatus();
+        isPreparationInProgress = false;
+        Debug.Log("茶叶准备完成");
+    }
 
     // 启动珍珠备菜
     public void StartBubblePreparation()
@@ -74,6 +84,7 @@ public class PreparationController : MonoBehaviour
         
         UpdateStatus();
         isPreparationInProgress = false;
+        Debug.Log("珍珠准备完成");
     }
 
     // 具体步骤：煮茶叶
@@ -133,5 +144,18 @@ public class PreparationController : MonoBehaviour
                 // 你可以在此处开始下一个阶段的操作，例如上菜
             }
         }
+    }
+    public void AddHotWater()
+    {
+        hasHotWater = true;
+    }
+    public bool HasHotWater()
+    {
+        return hasHotWater;
+    }
+    
+    public void ResetHotWater()
+    {
+        hasHotWater = false; 
     }
 }

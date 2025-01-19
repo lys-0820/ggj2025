@@ -7,6 +7,7 @@ public class stirController : MonoBehaviour
     [SerializeField] private Sprite emptySprite; // 空杯子的图片
     [SerializeField] private Sprite bubbleSprite; // 只有珍珠的图片
     [SerializeField] private Sprite hotWaterSprite; // 只有热水的图片
+    [SerializeField] private Sprite hotWaterBubbleSprite; // 热水和珍珠未煮熟的图片
     [SerializeField] private Sprite finalBubbleSprite; // 完成的珍珠的图片
     [SerializeField] private GameObject stirStick;
 
@@ -47,7 +48,6 @@ public class stirController : MonoBehaviour
 
     public void AddHotWater()
     {
-        hasHotWater = true;
         StartCoroutine(UpdateBubbleSprite());
     }
     public void StirBubble()
@@ -63,9 +63,12 @@ public class stirController : MonoBehaviour
         stirStick.SetActive(false);
         StartCoroutine(UpdateBubbleSprite());
         PreparationController.Instance.CompleteBubblePreparation();
+        PreparationController.Instance.ResetHotWater();
     }
     private IEnumerator UpdateBubbleSprite()
     {
+        hasHotWater = PreparationController.Instance.HasHotWater();
+        Debug.Log("hot water:" + hasHotWater);
         yield return new WaitForSeconds(3.0f);
         if (!hasBubble && !hasHotWater)
         {
@@ -81,6 +84,7 @@ public class stirController : MonoBehaviour
         }
         else if (hasBubble && hasHotWater)
         {
+            bubbleImage.sprite = hotWaterBubbleSprite;
             stirStick.SetActive(true);
         }
 

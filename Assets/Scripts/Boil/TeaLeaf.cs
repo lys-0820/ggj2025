@@ -4,16 +4,20 @@ using System.Collections;
 
 public class TeaLeaf : MonoBehaviour
 {
-    [SerializeField] private GameObject teaLeaf;
+    [SerializeField] private GameObject blackTeaLeaf;
+    [SerializeField] private GameObject greenTeaLeaf;
     [SerializeField] private GameObject teaPot;
     
     private bool isMoving = false;
     private float moveSpeed = 2f;
     private Vector3 targetPosition;
 
+    private GameObject nowTeaLeaf;
+
     void Start()
     {
-        teaLeaf.AddComponent<BoxCollider2D>();
+        blackTeaLeaf.AddComponent<BoxCollider2D>();
+        greenTeaLeaf.AddComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -23,20 +27,21 @@ public class TeaLeaf : MonoBehaviour
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
-            if (hit.collider != null && hit.collider.gameObject == teaLeaf)
+            if (hit.collider != null && (hit.collider.gameObject == blackTeaLeaf||hit.collider.gameObject == greenTeaLeaf))
             {
-                StartTeaLeafMovement();
-                BoilTeaController.Instance.AddTeaLeaf();
+                nowTeaLeaf = hit.collider.gameObject;
+                StartTeaLeafMovement(nowTeaLeaf);
+                BoilTeaController.Instance.AddTeaLeaf(nowTeaLeaf);
             }
         }
 
-        if (isMoving)
+        if (isMoving&& nowTeaLeaf)
         {
-            MoveTeaLeaf();
+            MoveTeaLeaf(nowTeaLeaf);
         }
     }
 
-    private void StartTeaLeafMovement()
+    private void StartTeaLeafMovement(GameObject teaLeaf)
     {
         isMoving = true;
         Vector3 teaPotPosition = teaPot.transform.position;
@@ -44,7 +49,7 @@ public class TeaLeaf : MonoBehaviour
         teaLeaf.transform.position = targetPosition;
     }
 
-    private void MoveTeaLeaf()
+    private void MoveTeaLeaf(GameObject teaLeaf)
     {
         teaLeaf.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
 

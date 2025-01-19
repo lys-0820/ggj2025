@@ -29,6 +29,7 @@ public class HotWaterBubble : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject == tap)
             {
                 StartWaterFlow();
+                PreparationController.Instance.AddHotWater();
                 stirController.Instance.AddHotWater();
             }
 

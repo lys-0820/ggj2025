@@ -39,16 +39,17 @@ public class BoilTeaController : MonoBehaviour
        StartCoroutine(UpdateTeaSprite());
     }
 
-    public void AddTeaLeaf()
+    public void AddTeaLeaf(GameObject teaLeaf)
     {
         hasTeaLeaf = true;
-       StartCoroutine(UpdateTeaSprite());
+        StartCoroutine(UpdateTeaSprite());
+        PreparationController.Instance.StartTeaPreparation();
     }
 
     public void AddHotWater()
     {
-        hasHotWater = true;
-       StartCoroutine(UpdateTeaSprite());
+        
+        StartCoroutine(UpdateTeaSprite());
     }
 
     public void Reset()
@@ -56,9 +57,13 @@ public class BoilTeaController : MonoBehaviour
         hasTeaLeaf = false;
         hasHotWater = false;
         StartCoroutine(UpdateTeaSprite());
+        PreparationController.Instance.CompleteTeaPreparation();
+        PreparationController.Instance.ResetHotWater();
     }
     private IEnumerator UpdateTeaSprite()
     {
+        hasHotWater = PreparationController.Instance.HasHotWater();
+        Debug.Log("hot water:" + hasHotWater);
         yield return new WaitForSeconds(2.0f);
         if (!hasTeaLeaf && !hasHotWater)
         {
@@ -75,6 +80,7 @@ public class BoilTeaController : MonoBehaviour
         else if (hasTeaLeaf && hasHotWater)
         {
             teaImage.sprite = finalTeaSprite;
+            Reset();
         }
     }
 

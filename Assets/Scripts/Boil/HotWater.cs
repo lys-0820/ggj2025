@@ -29,6 +29,7 @@ public class HotWater : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject == tap)
             {
                 StartWaterFlow();
+                PreparationController.Instance.AddHotWater();
                 BoilTeaController.Instance.AddHotWater();
             }
 
