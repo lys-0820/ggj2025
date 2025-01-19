@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6d40b693309d8914a86d59c4f2f6213b
+guid: ab652f75ffb331f48a4a6f3ebbe46adf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2334774804454263014
-    second: greenTea 1_0
+      213: -6550555289154321498
+    second: ticket_bottom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: greenTea 1_0
+      name: ticket_bottom_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 103
-        height: 134
+        width: 28
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e847028059c66020800000000000000
-      internalID: 2334774804454263014
+      spriteID: 6a3866cbba0c715a0800000000000000
+      internalID: -6550555289154321498
       vertices: []
       indices: 
       edges: []

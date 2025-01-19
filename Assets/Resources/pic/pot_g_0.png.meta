@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c684ce0ead871f34e9f27c568168ec67
+guid: 41debbe939b7b00498df5983810184e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3574365195261299623
-    second: redtea_0
+      213: 3864740677883998879
+    second: pot_g_0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: redtea_0
+      name: pot_g_0_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 9
-        width: 211
-        height: 320
+        x: 0
+        y: 0
+        width: 252
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7abc1111532ba9130800000000000000
-      internalID: 3574365195261299623
+      spriteID: f9237469b2152a530800000000000000
+      internalID: 3864740677883998879
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      redtea_0: 3574365195261299623
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
