@@ -42,6 +42,7 @@ public class stirController : MonoBehaviour
     {
         hasBubble = true;
         StartCoroutine(UpdateBubbleSprite());
+        PreparationController.Instance.StartBubblePreparation();
     }
 
     public void AddHotWater()
@@ -61,6 +62,7 @@ public class stirController : MonoBehaviour
         hasStir = false;
         stirStick.SetActive(false);
         StartCoroutine(UpdateBubbleSprite());
+        PreparationController.Instance.CompleteBubblePreparation();
     }
     private IEnumerator UpdateBubbleSprite()
     {
@@ -87,6 +89,7 @@ public class stirController : MonoBehaviour
             
             bubbleImage.sprite = finalBubbleSprite;
             Reset();
+            
         }
         
     }
@@ -94,4 +97,6 @@ public class stirController : MonoBehaviour
     // 获取当前状态的方法
     public bool HasBubble() => hasBubble;
     public bool HasHotWater() => hasHotWater;
+
+
 }
