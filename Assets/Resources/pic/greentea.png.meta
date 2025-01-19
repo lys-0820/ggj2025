@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 83d56cdb64138d6498b69a50e1a4380c
+guid: 6d40b693309d8914a86d59c4f2f6213b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6231707311893363455
-    second: greentea_0
+      213: 2334774804454263014
+    second: greenTea 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: greentea_0
+      name: greenTea 1_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 9
-        width: 211
-        height: 320
+        x: 0
+        y: 0
+        width: 103
+        height: 134
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 105446287378489a0800000000000000
-      internalID: -6231707311893363455
+      spriteID: 6e847028059c66020800000000000000
+      internalID: 2334774804454263014
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      greentea_0: -6231707311893363455
+      greenTea 1_0: 2334774804454263014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
