@@ -2,7 +2,15 @@ using UnityEngine;
 
 public class ServingController : MonoBehaviour
 {
+
     public static ServingController Instance { get; private set; }
+
+    [SerializeField] private GameObject blackTeaPot;
+    [SerializeField] private GameObject greenTeaPot;
+    [SerializeField] private GameObject milk;
+    [SerializeField] private GameObject ice;
+    [SerializeField] private GameObject bubbles;
+    [SerializeField] private GameObject yuyuan;
     private void Awake()
     {
         // 实现单例模式
