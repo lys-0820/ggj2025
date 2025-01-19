@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -151,7 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teaLeaf: {fileID: 1388114811}
   teaPot: {fileID: 1268388335}
-  boiledTeaPotSprite: {fileID: -8666444169232215368, guid: d1e9d7154fd1ce640accd10c887feb45, type: 3}
 --- !u!4 &134958782
 Transform:
   m_ObjectHideFlags: 0
