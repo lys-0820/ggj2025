@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static ServingController;
 
 public class TicketsController : MonoBehaviour
@@ -13,6 +14,8 @@ public class TicketsController : MonoBehaviour
 
     // 当前对比的订单索引
     private int currentOrderIndex = 0;
+
+    [SerializeField] private List<GameObject> ticketImgs = new List<GameObject>();
 
     private void Awake()
     {
@@ -74,11 +77,14 @@ public class TicketsController : MonoBehaviour
             if (IsOrderMatch(orders[currentOrderIndex]))
             {
                 OnOrderCompleted(true);
+                ticketImgs[currentOrderIndex].gameObject.SetActive(false);
                 currentOrderIndex++; // 下一个订单
+                
             }
             else
             {
                 OnOrderCompleted(false); // 如果不符合订单，反馈失败
+                ticketImgs[currentOrderIndex].gameObject.SetActive(false);
                 currentOrderIndex++; // 下一个订单
             }
         }
