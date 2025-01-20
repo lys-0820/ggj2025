@@ -41,7 +41,7 @@ public class HotWaterBubble : MonoBehaviour
             waterTimer += Time.deltaTime;
             if (waterTimer >= 3f)
             {
-                StopWaterFlow();
+                //StopWaterFlow();
             }
         }
     }

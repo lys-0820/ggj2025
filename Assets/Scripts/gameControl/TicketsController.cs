@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static ServingController;
+using TMPro;
+using System.Collections;
 
 public class TicketsController : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class TicketsController : MonoBehaviour
     private int currentOrderIndex = 0;
 
     [SerializeField] private List<GameObject> ticketImgs = new List<GameObject>();
+    [SerializeField] private TMP_Text resultText;
 
     private void Awake()
     {
@@ -49,18 +52,21 @@ public class TicketsController : MonoBehaviour
     void Start()
     {
         GenerateFixedOrders();
+        resultText.text = "";
     }
     // 生成固定的三个订单
     private void GenerateFixedOrders()
     {
+        // 第一个订单：茶
+        orders.Add(new HashSet<Ingredient> { Ingredient.BlackTea });
         // 第一个订单：奶 + 茶
-        orders.Add(new HashSet<Ingredient> { Ingredient.Milk, Ingredient.BlackTea });
+        orders.Add(new HashSet<Ingredient> { Ingredient.Milk, Ingredient.GreenTea });
 
         // 第二个订单：奶 + 小料
-        orders.Add(new HashSet<Ingredient> { Ingredient.Milk, Ingredient.GreenTea, Ingredient.Bubble });
+        orders.Add(new HashSet<Ingredient> { Ingredient.Milk, Ingredient.BlackTea, Ingredient.Bubble });
 
         // 第三个订单：茶 + 小料
-        orders.Add(new HashSet<Ingredient> { Ingredient.Milk, Ingredient.BlackTea, Ingredient.Yuyuan });
+        orders.Add(new HashSet<Ingredient> { Ingredient.Milk, Ingredient.GreenTea, Ingredient.Yuyuan });
     }
 
     // 检查玩家制作的奶茶是否符合当前订单
@@ -77,6 +83,7 @@ public class TicketsController : MonoBehaviour
             if (IsOrderMatch(orders[currentOrderIndex]))
             {
                 OnOrderCompleted(true);
+                StartCoroutine(showResult("Excellent!"));
                 ticketImgs[currentOrderIndex].gameObject.SetActive(false);
                 currentOrderIndex++; // 下一个订单
                 
@@ -84,6 +91,7 @@ public class TicketsController : MonoBehaviour
             else
             {
                 OnOrderCompleted(false); // 如果不符合订单，反馈失败
+                StartCoroutine(showResult("Wrong!"));
                 ticketImgs[currentOrderIndex].gameObject.SetActive(false);
                 currentOrderIndex++; // 下一个订单
             }
@@ -107,6 +115,12 @@ public class TicketsController : MonoBehaviour
     {
         playerIngredients = playerSet;
         CheckOrder();
+    }
+    private IEnumerator showResult(string result)
+    {
+        resultText.text = result;
+        yield return new WaitForSeconds(2f);
+        resultText.text = "";
     }
 
 }

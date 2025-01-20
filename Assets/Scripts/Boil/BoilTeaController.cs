@@ -82,8 +82,6 @@ public class BoilTeaController : MonoBehaviour
         PreparationController.Instance.CompleteTeaPreparation();
         PreparationController.Instance.ResetHotWater();
 
-        // 清空计时器文本
-        timerText.text = "0s";
     }
     private IEnumerator UpdateTeaSprite(teaType type)
     {
@@ -126,14 +124,8 @@ public class BoilTeaController : MonoBehaviour
         float totalBoilTime = 10f;  // 总煮茶时间为10秒
         float remainingTime = totalBoilTime;
 
+        Timer.Instance.startBoiling();
 
-        // 开始计时，并更新UI
-        while (remainingTime > 0)
-        {
-            timerText.text = Mathf.Ceil(remainingTime).ToString() + "s";  // 显示倒计时
-            remainingTime -= Time.deltaTime;  // 每帧减少时间
-            yield return null;  // 等待下一帧
-        }
         if (type == teaType.black)
         {
             teaImage.sprite = blackWaterSprite;

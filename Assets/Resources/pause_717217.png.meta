@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ab652f75ffb331f48a4a6f3ebbe46adf
+guid: 04faa312c62ed7746b43792a6b6198a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6550555289154321498
-    second: ticket_bottom_0
+      213: 8353924854286447575
+    second: pause_717217_0
+  - first:
+      213: -2888136483060052777
+    second: pause_717217_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ticket_bottom_0
+      name: pause_717217_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 31
         y: 0
-        width: 28
-        height: 22
+        width: 194
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a3866cbba0c715a0800000000000000
-      internalID: -6550555289154321498
+      spriteID: 7d3fc0cd46a1fe370800000000000000
+      internalID: 8353924854286447575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_717217_1
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 0
+        width: 194
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc0c50bb274be7d0800000000000000
+      internalID: -2888136483060052777
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a0d1f464b4b49a347b1dd70ba332e043
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ticket_bottom_0: -6550555289154321498
+      pause_717217_0: 8353924854286447575
+      pause_717217_1: -2888136483060052777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

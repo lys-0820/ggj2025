@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ab652f75ffb331f48a4a6f3ebbe46adf
+guid: 9ecd35c31e40afe4a831497ad92dd406
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6550555289154321498
-    second: ticket_bottom_0
+      213: 5956185439461038464
+    second: bubbleShelf_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ticket_bottom_0
+      name: bubbleShelf_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 28
-        height: 22
+        y: 1
+        width: 254
+        height: 318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a3866cbba0c715a0800000000000000
-      internalID: -6550555289154321498
+      spriteID: 089dd67991f98a250800000000000000
+      internalID: 5956185439461038464
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a0d1f464b4b49a347b1dd70ba332e043
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ticket_bottom_0: -6550555289154321498
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
