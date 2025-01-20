@@ -2,17 +2,18 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using static ServingController;
+public enum Ingredient
+{
+    Milk,
+    BlackTea,
+    GreenTea,
+    Bubble,
+    Yuyuan,
+    None
+}
 public class ServingController : MonoBehaviour
 {
-    public enum Ingredient
-    {
-        Milk,
-        BlackTea,
-        GreenTea,
-        Bubble,
-        Yuyuan,
-        None
-    }
+
     public static ServingController Instance { get; private set; }
 
     [SerializeField] private GameObject blackTeaPot;
@@ -24,6 +25,7 @@ public class ServingController : MonoBehaviour
     // 用于管理cup的sprite
     [SerializeField] private SpriteRenderer cupSpriteRenderer;
 
+    public Sprite emptySprite;
     // 不同单独食材的sprite
     public Sprite milkSprite;
     public Sprite greenTeaSprite;
@@ -38,6 +40,8 @@ public class ServingController : MonoBehaviour
 
     // 当前已添加的食材
     private HashSet<Ingredient> currentIngredients = new HashSet<Ingredient>();
+
+    [SerializeField] private GameObject cupObject;
 
     private bool makingStatus = false;
     private void Awake()
@@ -114,9 +118,16 @@ public class ServingController : MonoBehaviour
 
     public void checkIngredientCorrect()
     {
-        foreach(var ingredient in currentIngredients)
+        TicketsController.Instance.SetPlayerRecipe(currentIngredients);
+        ResetCup();
+    }
+    public void ResetCup()
+    {
+        currentIngredients.Clear();
+        cupSpriteRenderer.sprite = emptySprite;
+        foreach(Transform item in cupObject.transform)
         {
-            Debug.Log(ingredient);
+            Destroy(item.gameObject);
         }
     }
 }

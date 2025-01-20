@@ -7,6 +7,7 @@ public class AddToppings : MonoBehaviour
     public Ingredient ingredientType; // 当前元素的sprite
     [SerializeField] private GameObject cup;
     [SerializeField] private GameObject nowToppingPrefab;
+    [SerializeField] private GameObject parentObject;
     private GameObject nowTopping;
     private float moveSpeed = 2f;
     private bool isMoving = false;
@@ -56,15 +57,20 @@ public class AddToppings : MonoBehaviour
     {
         isMoving = true;
         nowTopping = Instantiate(nowToppingPrefab);
+        nowTopping.transform.SetParent(parentObject.transform, false);
         nowTopping.SetActive(true);
         Vector3 cupPosition = cup.transform.position;
         nowTopping.transform.position = new Vector3(cupPosition.x, cupPosition.y + 2f, cupPosition.z);
     }
     private void MoveToppings()
     {
-        if (cup.transform.position.y - nowTopping.transform.position.y < 0.5f)
+        if (nowTopping != null)
         {
-            nowTopping.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+            if (cup.transform.position.y - nowTopping.transform.position.y < 0.5f)
+            {
+                nowTopping.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+            }
         }
+
     }
 }
