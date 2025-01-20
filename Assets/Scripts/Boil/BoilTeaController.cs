@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using TMPro;
+public enum teaType
+{
+    black,
+    green,
+    none
+}
 public class BoilTeaController : MonoBehaviour
 {
-    private enum teaType
-    {
-        black,
-        green,
-        none
-    }
+
     public static BoilTeaController Instance { get; private set; }
 
     [SerializeField] private SpriteRenderer teaImage; // 茶汤的图片组件
@@ -33,6 +34,7 @@ public class BoilTeaController : MonoBehaviour
     private bool hasHotWater = false;
     private teaType type = teaType.none;
 
+    [SerializeField] private TMP_Text timerText;          // UI中的计时器文本
     private void Awake()
     {
         // 实现单例模式
@@ -57,17 +59,11 @@ public class BoilTeaController : MonoBehaviour
        StartCoroutine(UpdateTeaSprite(type));
     }
 
-    public void AddTeaLeaf(GameObject teaLeaf)
+    public void AddTeaLeaf(teaType teaType)
     {
         hasTeaLeaf = true;
-        if(teaLeaf.name == "greenTeaLeaf")
-        {
-            type = teaType.green;
-        }
-        if(teaLeaf.name == "blackTeaLeaf")
-        {
-            type = teaType.black;
-        }
+        type = teaType;
+        Debug.Log(type);
         StartCoroutine(UpdateTeaSprite(type));
         PreparationController.Instance.StartTeaPreparation();
     }
@@ -85,6 +81,9 @@ public class BoilTeaController : MonoBehaviour
         StartCoroutine(UpdateTeaSprite(type));
         PreparationController.Instance.CompleteTeaPreparation();
         PreparationController.Instance.ResetHotWater();
+
+        // 清空计时器文本
+        timerText.text = "0s";
     }
     private IEnumerator UpdateTeaSprite(teaType type)
     {
@@ -124,6 +123,17 @@ public class BoilTeaController : MonoBehaviour
 
     private IEnumerator startBoiling(teaType type)
     {
+        float totalBoilTime = 10f;  // 总煮茶时间为10秒
+        float remainingTime = totalBoilTime;
+
+
+        // 开始计时，并更新UI
+        while (remainingTime > 0)
+        {
+            timerText.text = Mathf.Ceil(remainingTime).ToString() + "s";  // 显示倒计时
+            remainingTime -= Time.deltaTime;  // 每帧减少时间
+            yield return null;  // 等待下一帧
+        }
         if (type == teaType.black)
         {
             teaImage.sprite = blackWaterSprite;

@@ -12,12 +12,15 @@ public class TeaLeaf : MonoBehaviour
     private float moveSpeed = 2f;
     private Vector3 targetPosition;
 
+    [SerializeField] private GameObject greenTeaPrefab;
+    [SerializeField] private GameObject blackTeaPrefab;
     private GameObject nowTeaLeaf;
+
 
     void Start()
     {
-        blackTeaLeaf.AddComponent<BoxCollider2D>();
-        greenTeaLeaf.AddComponent<BoxCollider2D>();
+        //blackTeaLeaf.AddComponent<BoxCollider2D>();
+        //greenTeaLeaf.AddComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -29,9 +32,19 @@ public class TeaLeaf : MonoBehaviour
 
             if (hit.collider != null && (hit.collider.gameObject == blackTeaLeaf||hit.collider.gameObject == greenTeaLeaf))
             {
-                nowTeaLeaf = hit.collider.gameObject;
+                if(hit.collider.gameObject == blackTeaLeaf)
+                {
+                    nowTeaLeaf = Instantiate(blackTeaPrefab);
+                    BoilTeaController.Instance.AddTeaLeaf(teaType.black);
+                }
+                else
+                {
+                    nowTeaLeaf = Instantiate(greenTeaPrefab);
+                    BoilTeaController.Instance.AddTeaLeaf(teaType.green);
+                }
+                
                 StartTeaLeafMovement(nowTeaLeaf);
-                BoilTeaController.Instance.AddTeaLeaf(nowTeaLeaf);
+                
             }
         }
 
@@ -56,7 +69,7 @@ public class TeaLeaf : MonoBehaviour
         if (Vector3.Distance(teaLeaf.transform.position, teaPot.transform.position) < 0.5f)
         {
             isMoving = false;
-            teaLeaf.SetActive(false);
+            Destroy(teaLeaf);
         }
     }
 
